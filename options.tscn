@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://r0xu8palkck8"]
+
+[ext_resource type="Texture2D" uid="uid://cma8utslr5dle" path="res://music_sheet.png" id="1_5v8ap"]
+
+[node name="Options" type="Node2D" unique_id=1150418346]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=437739625]
+offset_top = 547.0
+offset_right = 204.0
+offset_bottom = 648.0
+texture = ExtResource("1_5v8ap")
+expand_mode = 1
