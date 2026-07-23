@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cti3bw8is5x5c"]
+
+[ext_resource type="Script" uid="uid://b3njo814pjgt7" path="res://chart.gd" id="1_dfoeh"]
+[ext_resource type="AudioStream" uid="uid://dc8mve573bhgp" path="res://D_N_A _ 25時、ナイトコードで。 × 鏡音リン 4.mp3" id="2_7oxp5"]
+[ext_resource type="Script" uid="uid://67w3g2x5hgok" path="res://conductor.gd" id="3_bsgdk"]
+
+[node name="Node2D" type="Node2D" unique_id=1655479819]
+script = ExtResource("1_dfoeh")
+
+[node name="Conductor" type="AudioStreamPlayer" parent="." unique_id=314652352]
+stream = ExtResource("2_7oxp5")
+volume_db = -32.606
+autoplay = true
+script = ExtResource("3_bsgdk")

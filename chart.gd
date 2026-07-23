@@ -3,7 +3,9 @@ var notes = [
 	[2, 7],
 	[3, 8],
 	[4, 9],
-	[5, 10]
+	[5, 10],
+	[13, 18],
+	[19, 20]
 ]
 var score := 0
 
@@ -15,7 +17,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	queue_redraw()
-	for i in 4:
+	for i in 6:
 		var lane = notes[i]
 		while not lane.is_empty():
 			var note = lane[0]
@@ -27,23 +29,23 @@ func _process(delta: float) -> void:
 
 
 func _draw() -> void:
-	for i in 5:
+	for i in 7:
 		var start = Vector2(100 * i + 200, 0)
 		var end = Vector2(100 * i + 200, 720)
 		draw_line(start, end, Color.PURPLE)
-		if i < 4:
+		if i < 6:
 			var label_pos = Vector2(100 * (i+0.5) + 200, 620 + 30)
 			draw_string(ThemeDB.fallback_font, label_pos, str(i+1), HORIZONTAL_ALIGNMENT_CENTER)
 
 	var judge_start = Vector2(200, 620)
-	var judge_end = Vector2(100 * 4 + 200, 620)
+	var judge_end = Vector2(100 * 6 + 200, 620)
 	draw_line(judge_start, judge_end, Color.HOT_PINK)
-	for i in 4:    
+	for i in 6:    
 		for note in notes[i]:
 			var y = 620 + 100 * ($Conductor.beat - note)
 			var start = Vector2(100 * i + 200, y)
 			var end = Vector2(100 * (i+1) + 200, y)
-			draw_line(start, end, Color.WHITE, 5)
+			draw_line(start, end, Color.WHITE, 20)
 			
 	draw_string(ThemeDB.fallback_font, Vector2(60, 60), "Score: " + str(score))
 
@@ -56,6 +58,10 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			_handle_lane_press(2)
 		elif event.is_action_pressed("4"):
 			_handle_lane_press(3)
+		elif event.is_action_pressed("5"):
+			_handle_lane_press(4)
+		elif event.is_action_pressed("6"):
+			_handle_lane_press(5)
 
 
 func _handle_lane_press(lane: int) -> void:
@@ -64,6 +70,9 @@ func _handle_lane_press(lane: int) -> void:
 		return
 	var note = lane_notes[0]
 
-	if abs($Conductor.beat - note) < 0.5:
+	if abs($Conductor.beat - note) < .6 && abs($Conductor.beat - note) > .200:
 		lane_notes.pop_front()
-		score+= 1
+		score+= 100
+	elif abs($Conductor.beat - note) < .200:
+		lane_notes.pop_front()
+		score += 250
