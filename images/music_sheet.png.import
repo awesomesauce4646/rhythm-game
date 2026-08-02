@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1nrewg1lskh7"
-path="res://.godot/imported/quit_hover.png-927afe0673f47285726b86f6d0b3b734.ctex"
+uid="uid://cma8utslr5dle"
+path="res://.godot/imported/music_sheet.png-3739d30ae1d9c4b435f800ce41219bf7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://quit_hover.png"
-dest_files=["res://.godot/imported/quit_hover.png-927afe0673f47285726b86f6d0b3b734.ctex"]
+source_file="res://images/music_sheet.png"
+dest_files=["res://.godot/imported/music_sheet.png-3739d30ae1d9c4b435f800ce41219bf7.ctex"]
 
 [params]
 

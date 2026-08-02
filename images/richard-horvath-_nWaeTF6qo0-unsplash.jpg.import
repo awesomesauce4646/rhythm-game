@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://buphrejfnu411"
-path="res://.godot/imported/richard-horvath-_nWaeTF6qo0-unsplash.jpg-e74084d49a7d57faff6a83fd4f82880e.ctex"
+path="res://.godot/imported/richard-horvath-_nWaeTF6qo0-unsplash.jpg-84e0f95e89bd2a05caefe5f2c47d7ca4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://richard-horvath-_nWaeTF6qo0-unsplash.jpg"
-dest_files=["res://.godot/imported/richard-horvath-_nWaeTF6qo0-unsplash.jpg-e74084d49a7d57faff6a83fd4f82880e.ctex"]
+source_file="res://images/richard-horvath-_nWaeTF6qo0-unsplash.jpg"
+dest_files=["res://.godot/imported/richard-horvath-_nWaeTF6qo0-unsplash.jpg-84e0f95e89bd2a05caefe5f2c47d7ca4.ctex"]
 
 [params]
 

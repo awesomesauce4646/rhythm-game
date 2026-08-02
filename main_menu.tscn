@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://b4mso2eu5ge76"]
 
 [ext_resource type="Script" uid="uid://d2rmidvlr8vf0" path="res://main_menu.gd" id="1_06t4h"]
-[ext_resource type="Texture2D" uid="uid://buphrejfnu411" path="res://richard-horvath-_nWaeTF6qo0-unsplash.jpg" id="2_7vrkn"]
-[ext_resource type="Texture2D" uid="uid://d1ucf74e54eo2" path="res://start.png" id="3_fu7sn"]
-[ext_resource type="Texture2D" uid="uid://cxyrr0vcbbj6g" path="res://start_hover.png" id="4_jix8l"]
-[ext_resource type="Texture2D" uid="uid://i82lsgfwaomp" path="res://options.png" id="5_glbon"]
-[ext_resource type="Texture2D" uid="uid://ds7xvu7ceef2p" path="res://options_hover.png" id="6_8qtwp"]
-[ext_resource type="Texture2D" uid="uid://dl616bjeebv25" path="res://quit.png" id="6_nlkkf"]
-[ext_resource type="Texture2D" uid="uid://b1nrewg1lskh7" path="res://quit_hover.png" id="8_dy7ct"]
+[ext_resource type="Texture2D" uid="uid://buphrejfnu411" path="res://images/richard-horvath-_nWaeTF6qo0-unsplash.jpg" id="2_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://d1ucf74e54eo2" path="res://images/start.png" id="3_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://cxyrr0vcbbj6g" path="res://images/start_hover.png" id="4_jix8l"]
+[ext_resource type="Texture2D" uid="uid://i82lsgfwaomp" path="res://images/options.png" id="5_glbon"]
+[ext_resource type="Texture2D" uid="uid://ds7xvu7ceef2p" path="res://images/options_hover.png" id="6_8qtwp"]
+[ext_resource type="Texture2D" uid="uid://dl616bjeebv25" path="res://images/quit.png" id="6_nlkkf"]
+[ext_resource type="Texture2D" uid="uid://b1nrewg1lskh7" path="res://images/quit_hover.png" id="8_dy7ct"]
 
 [node name="Main Menu" type="Node2D" unique_id=724444892]
 script = ExtResource("1_06t4h")

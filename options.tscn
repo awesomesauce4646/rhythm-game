@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://r0xu8palkck8"]
 
-[ext_resource type="Texture2D" uid="uid://cma8utslr5dle" path="res://music_sheet.png" id="1_5v8ap"]
+[ext_resource type="Texture2D" uid="uid://cma8utslr5dle" path="res://images/music_sheet.png" id="1_5v8ap"]
 
 [node name="Options" type="Node2D" unique_id=1150418346]
 
