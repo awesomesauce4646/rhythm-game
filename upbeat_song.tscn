@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://mvsri8wytln4"]
+
+[ext_resource type="Script" uid="uid://borf4nfa3gvx5" path="res://upbeat_chart.gd" id="1_j37fv"]
+[ext_resource type="AudioStream" uid="uid://bx4gfihtp6hne" path="res://songs/bombinsound-upbeat-rock-version-2-544111.mp3" id="2_j37fv"]
+[ext_resource type="Script" uid="uid://cbq80braxepiu" path="res://upbeat_conductor.gd" id="3_bcnv2"]
+
+[node name="Upbeat_Song" type="Node2D" unique_id=1280096050]
+script = ExtResource("1_j37fv")
+
+[node name="Conductor" type="AudioStreamPlayer" parent="." unique_id=1353313270]
+stream = ExtResource("2_j37fv")
+volume_db = 6.0
+script = ExtResource("3_bcnv2")

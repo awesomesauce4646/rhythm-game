@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2e6ppmr2mgoc" path="res://water_chart.gd" id="1_463hu"]
 [ext_resource type="AudioStream" uid="uid://bd71loersgiij" path="res://songs/kontraa-water-afro-pop-music-445661.mp3" id="2_0rucn"]
-[ext_resource type="Script" uid="uid://da2f4dehpi3u6" path="res://water_song.gd" id="3_463hu"]
+[ext_resource type="Script" uid="uid://da2f4dehpi3u6" path="res://water_conductor.gd" id="3_463hu"]
 [ext_resource type="Texture2D" uid="uid://baenpgujoqabx" path="res://images/shreyansh-mishra-08Jff84I-sA-unsplash.jpg" id="4_0rucn"]
 
 [node name="Water_Song" type="Node2D" unique_id=682373420]
