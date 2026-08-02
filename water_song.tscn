@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b6bg1k7omkh7n"]
+
+[ext_resource type="Script" uid="uid://b2e6ppmr2mgoc" path="res://water_chart.gd" id="1_463hu"]
+[ext_resource type="AudioStream" uid="uid://bd71loersgiij" path="res://songs/kontraa-water-afro-pop-music-445661.mp3" id="2_0rucn"]
+[ext_resource type="Script" uid="uid://da2f4dehpi3u6" path="res://water_song.gd" id="3_463hu"]
+[ext_resource type="Texture2D" uid="uid://baenpgujoqabx" path="res://images/shreyansh-mishra-08Jff84I-sA-unsplash.jpg" id="4_0rucn"]
+
+[node name="Water_Song" type="Node2D" unique_id=682373420]
+script = ExtResource("1_463hu")
+
+[node name="Conductor" type="AudioStreamPlayer" parent="." unique_id=995424289]
+stream = ExtResource("2_0rucn")
+volume_db = 6.0
+script = ExtResource("3_463hu")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1640753749]
+show_behind_parent = true
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("4_0rucn")
+expand_mode = 1

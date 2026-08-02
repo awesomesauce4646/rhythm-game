@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b6bg1k7omkh7n"]
+
+[ext_resource type="Script" uid="uid://b2e6ppmr2mgoc" path="res://temple_chart.gd" id="1_0ua7x"]
+[ext_resource type="Script" uid="uid://da2f4dehpi3u6" path="res://temple_song.gd" id="2_0ua7x"]
+[ext_resource type="AudioStream" uid="uid://lnviytbxf55f" path="res://5_flying_temple.wav" id="4_2e0qg"]
+
+[node name="Temple_Song" type="Node2D" unique_id=682373420]
+script = ExtResource("1_0ua7x")
+
+[node name="Conductor" type="AudioStreamPlayer" parent="." unique_id=995424289]
+stream = ExtResource("4_2e0qg")
+volume_db = -32.606
+autoplay = true
+script = ExtResource("2_0ua7x")

@@ -1,3 +1,49 @@
 [gd_scene format=3 uid="uid://cahd8hrkrgf7o"]
 
-[node name="Song Selection" type="Node2D" unique_id=1823874185]
+[ext_resource type="Script" uid="uid://cg28tobs8yu4j" path="res://song_selection.gd" id="1_770jc"]
+[ext_resource type="Texture2D" uid="uid://blll3kb1b2ha4" path="res://images/jr-korpa-6dN9l-gopyo-unsplash.jpg" id="1_ofl7c"]
+[ext_resource type="Texture2D" uid="uid://cn67x80r1637p" path="res://images/water.png" id="3_wqwlp"]
+
+[node name="Song_Selection" type="Node2D" unique_id=1823874185]
+script = ExtResource("1_770jc")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1160702734]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_ofl7c")
+expand_mode = 1
+
+[node name="Water_Icon" type="TextureRect" parent="." unique_id=1909099450]
+offset_left = 59.0
+offset_top = 95.0
+offset_right = 399.0
+offset_bottom = 411.0
+texture = ExtResource("3_wqwlp")
+
+[node name="Water" type="RichTextLabel" parent="." unique_id=1841783932]
+offset_left = 59.0
+offset_top = 423.0
+offset_right = 421.0
+offset_bottom = 497.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 42
+text = "Water by kontraa"
+
+[node name="ButtonManager" type="Control" parent="." unique_id=118948684]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Play_Water" type="Button" parent="ButtonManager" unique_id=744132148]
+top_level = true
+layout_mode = 0
+offset_left = 115.0
+offset_top = 520.0
+offset_right = 324.0
+offset_bottom = 601.0
+theme_override_font_sizes/font_size = 42
+text = "PLAY"
+
+[connection signal="pressed" from="ButtonManager/Play_Water" to="." method="_on_play_water_pressed"]
