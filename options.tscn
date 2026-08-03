@@ -5,8 +5,9 @@
 [node name="Options" type="Node2D" unique_id=1150418346]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=437739625]
-offset_top = 547.0
-offset_right = 204.0
-offset_bottom = 648.0
+offset_left = -303.0
+offset_top = 561.0
+offset_right = -99.0
+offset_bottom = 662.0
 texture = ExtResource("1_5v8ap")
 expand_mode = 1

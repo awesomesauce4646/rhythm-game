@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://borf4nfa3gvx5" path="res://upbeat_chart.gd" id="1_j37fv"]
 [ext_resource type="AudioStream" uid="uid://bx4gfihtp6hne" path="res://songs/bombinsound-upbeat-rock-version-2-544111.mp3" id="2_j37fv"]
 [ext_resource type="Script" uid="uid://cbq80braxepiu" path="res://upbeat_conductor.gd" id="3_bcnv2"]
+[ext_resource type="Texture2D" uid="uid://dh6k3sh7viixs" path="res://images/pawel-czerwinski-IcOg3D9yh0o-unsplash.jpg" id="4_l3k1q"]
 
 [node name="Upbeat_Song" type="Node2D" unique_id=1280096050]
 script = ExtResource("1_j37fv")
@@ -11,3 +12,17 @@ script = ExtResource("1_j37fv")
 stream = ExtResource("2_j37fv")
 volume_db = 6.0
 script = ExtResource("3_bcnv2")
+
+[node name="Judgement" type="RichTextLabel" parent="." unique_id=1947259271]
+offset_left = 869.0
+offset_top = 571.0
+offset_right = 1061.0
+offset_bottom = 623.0
+theme_override_font_sizes/normal_font_size = 32
+
+[node name="Background" type="TextureRect" parent="." unique_id=237866630]
+show_behind_parent = true
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("4_l3k1q")
+expand_mode = 1

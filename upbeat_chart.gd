@@ -1,5 +1,8 @@
 extends Node2D
 
+@onready var judgement_text: RichTextLabel = $Judgement
+
+
 var notes = [
 	[0.59, 2.99, 11.01, 17.04, 19.11, 30.28, 32.13, 40.97, 44.29, 50.94, 51.83, 55.95, 59.25, 63.3, 67.02, 69.26, 76.11, 78.38, 79.42, 84.45, 86.46, 92.02, 95.03, 96.04, 98.36, 100.36, 103.56, 104.67],
 	[0.66, 7.07, 15.1, 17.04, 22.99, 27.03, 31.54, 32.61, 43.3, 47.02, 50.27, 51.31, 53.24, 57.27, 60.15, 62.12, 64.24, 67.9, 71.68, 72.42, 75.45, 79.04, 80.05, 82.99, 87.54, 90.98, 95.32, 96.47, 99.04, 101.56, 104.13, 105.18],
@@ -25,8 +28,10 @@ func _process(delta: float) -> void:
 		var lane = notes[i]
 		while not lane.is_empty():
 			var note = lane[0]
-			if note < $Conductor.beat - 0.5:
+			if note < $Conductor.beat - 1:
 				lane.pop_front()
+				judgement_text.text = "MISS"
+				score -= 200
 			else:
 				break
 	pass
@@ -85,10 +90,17 @@ func _handle_lane_press(lane: int) -> void:
 
 	if abs($Conductor.beat - note) < .6 && abs($Conductor.beat - note) > .200:
 		lane_notes.pop_front()
-		score+= 100
+		score+= 100	
+		judgement_text.text = "GOOD"
 	elif abs($Conductor.beat - note) < .200:
 		lane_notes.pop_front()
 		score += 250
+		judgement_text.text = "PERFECT"
+	elif abs($Conductor.beat - note) > .6 && abs($Conductor.beat - note) < 1:
+		lane_notes.pop_front()
+		score += 50
+		judgement_text.text = "OKAY"
+	
 		
 func _save_chart() -> void:
 	var f = FileAccess.open("res://chart.json", FileAccess.WRITE)

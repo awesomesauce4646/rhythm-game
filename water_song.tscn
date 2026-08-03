@@ -13,6 +13,14 @@ stream = ExtResource("2_0rucn")
 volume_db = 6.0
 script = ExtResource("3_463hu")
 
+[node name="Judgement" type="RichTextLabel" parent="." unique_id=1423866606]
+top_level = true
+offset_left = 869.0
+offset_top = 571.0
+offset_right = 1061.0
+offset_bottom = 623.0
+theme_override_font_sizes/normal_font_size = 32
+
 [node name="Background" type="TextureRect" parent="." unique_id=1640753749]
 show_behind_parent = true
 offset_right = 1152.0
