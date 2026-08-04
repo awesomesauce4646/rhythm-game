@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var judgement_text: RichTextLabel = $Judgement
+@onready var click_text: RichTextLabel = $ClickToPlay
 
 var notes = [
 	[1.37, 3.99, 11.92, 14.76, 18.59, 19.69, 20.98, 22.79, 25.99, 28.46, 31.34, 33.37, 35.39, 41.95, 44.05, 46.73, 48.64, 52.5, 54.03, 59.36, 65.52, 68.04, 70.17, 73.67, 75.16, 78.23, 79.25, 85.79, 87.47, 89.99, 91.8, 92.72, 95.53, 96.4, 98.26, 99.67, 100.72, 101.85, 106.22, 107.82, 110.31, 112.51, 115.17, 117.85, 129.4, 132.02, 134.7, 135.77, 139.29, 143.62, 145.2, 146.33, 148.58, 149.48, 152.97, 153.71, 156.14, 159.29, 160.34, 163.41, 166.2],
@@ -21,6 +22,8 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+var song_ended := false
+
 func _process(delta: float) -> void:
 	queue_redraw()
 	for i in 4:
@@ -33,7 +36,22 @@ func _process(delta: float) -> void:
 				score -= 200
 			else:
 				break
-	pass
+
+	if not song_ended and _all_notes_cleared():
+		song_ended = true
+		_return_to_song_select()
+
+
+func _all_notes_cleared() -> bool:
+	for lane in notes:
+		if not lane.is_empty():
+			return false
+	return true
+
+
+func _return_to_song_select() -> void:
+	await get_tree().create_timer(2.0).timeout
+	get_tree().change_scene_to_file("res://song_selection.tscn")
 
 func _draw() -> void:
 	for i in 5:
@@ -104,3 +122,7 @@ func _save_chart() -> void:
 	f.store_string(JSON.stringify(recorded_notes))
 	f.close()
 	print("Chart saved with ", recorded_notes.size(), " notes")
+func _unhandled_input(event):
+	if event is InputEventKey or event is InputEventMouseButton:
+		$Conductor.start_song()
+		click_text.text = " "

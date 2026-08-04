@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var judgement_text: RichTextLabel = $Judgement
-
+@onready var click_text: RichTextLabel = $ClickToPlay
 
 var notes = [
 	[0.59, 2.99, 11.01, 17.04, 19.11, 30.28, 32.13, 40.97, 44.29, 50.94, 51.83, 55.95, 59.25, 63.3, 67.02, 69.26, 76.11, 78.38, 79.42, 84.45, 86.46, 92.02, 95.03, 96.04, 98.36, 100.36, 103.56, 104.67],
@@ -22,6 +22,8 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+var song_ended := false
+
 func _process(delta: float) -> void:
 	queue_redraw()
 	for i in 4:
@@ -34,7 +36,22 @@ func _process(delta: float) -> void:
 				score -= 200
 			else:
 				break
-	pass
+
+	if not song_ended and _all_notes_cleared():
+		song_ended = true
+		_return_to_song_select()
+
+
+func _all_notes_cleared() -> bool:
+	for lane in notes:
+		if not lane.is_empty():
+			return false
+	return true
+
+
+func _return_to_song_select() -> void:
+	await get_tree().create_timer(2.0).timeout
+	get_tree().change_scene_to_file("res://song_selection.tscn")
 
 
 func _draw() -> void:
@@ -107,3 +124,7 @@ func _save_chart() -> void:
 	f.store_string(JSON.stringify(recorded_notes))
 	f.close()
 	print("Chart saved with ", recorded_notes.size(), " notes")
+func _unhandled_input(event):
+	if event is InputEventKey or event is InputEventMouseButton:
+		$Conductor.start_song()
+		click_text.text = " "
