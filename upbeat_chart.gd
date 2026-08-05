@@ -2,6 +2,11 @@ extends Node2D
 
 @onready var judgement_text: RichTextLabel = $Judgement
 @onready var click_text: RichTextLabel = $ClickToPlay
+@onready var score_text: RichTextLabel = $EndScore
+@onready var end_screen: TextureRect = $EndBackground
+@onready var song_icon: TextureRect = $Upbeat_Icon
+
+const SCORE_FONT = preload("res://PeaceMarker-XGzrK.otf")
 
 var notes = [
 	[0.59, 2.99, 11.01, 17.04, 19.11, 30.28, 32.13, 40.97, 44.29, 50.94, 51.83, 55.95, 59.25, 63.3, 67.02, 69.26, 76.11, 78.38, 79.42, 84.45, 86.46, 92.02, 95.03, 96.04, 98.36, 100.36, 103.56, 104.67],
@@ -33,12 +38,25 @@ func _process(delta: float) -> void:
 			if note < $Conductor.beat - 1:
 				lane.pop_front()
 				judgement_text.text = "MISS"
-				score -= 200
+				if score >= 200:
+					score -= 200
+				if score < 200:
+					score = 0
 			else:
 				break
 
 	if not song_ended and _all_notes_cleared():
 		song_ended = true
+		await get_tree().create_timer(2.0).timeout
+		end_screen.show()
+		song_icon.show()
+		score_text.text = "UPBEAT ROCK
+COMPLETE!
+SCORE: " + str(score) + "
+
+GOING BACK TO SONG SELECTION"	
+		await get_tree().create_timer(4.0).timeout
+
 		_return_to_song_select()
 
 
@@ -72,7 +90,7 @@ func _draw() -> void:
 			var rect = Rect2(100 * i + 360, y - 100 / 2, 100, 100)
 			draw_texture_rect(note_texture, rect, false)
 			
-	draw_string(ThemeDB.fallback_font, Vector2(60, 60), "Score: " + str(score))
+	draw_string(SCORE_FONT, Vector2(60, 60), "Score: " + str(score))
 
 func _unhandled_key_input(event: InputEvent) -> void:
 		if event.is_action_pressed("1"):
@@ -117,7 +135,6 @@ func _handle_lane_press(lane: int) -> void:
 		lane_notes.pop_front()
 		score += 50
 		judgement_text.text = "OKAY"
-	
 		
 func _save_chart() -> void:
 	var f = FileAccess.open("res://chart.json", FileAccess.WRITE)

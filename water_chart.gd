@@ -2,6 +2,11 @@ extends Node2D
 
 @onready var judgement_text: RichTextLabel = $Judgement
 @onready var click_text: RichTextLabel = $ClickToPlay
+@onready var score_text: RichTextLabel = $EndScore
+@onready var end_screen: TextureRect = $EndBackground
+@onready var song_icon: TextureRect = $Water_Icon
+
+const SCORE_FONT = preload("res://PeaceMarker-XGzrK.otf")
 
 var notes = [
 	[1.37, 3.99, 11.92, 14.76, 18.59, 19.69, 20.98, 22.79, 25.99, 28.46, 31.34, 33.37, 35.39, 41.95, 44.05, 46.73, 48.64, 52.5, 54.03, 59.36, 65.52, 68.04, 70.17, 73.67, 75.16, 78.23, 79.25, 85.79, 87.47, 89.99, 91.8, 92.72, 95.53, 96.4, 98.26, 99.67, 100.72, 101.85, 106.22, 107.82, 110.31, 112.51, 115.17, 117.85, 129.4, 132.02, 134.7, 135.77, 139.29, 143.62, 145.2, 146.33, 148.58, 149.48, 152.97, 153.71, 156.14, 159.29, 160.34, 163.41, 166.2],
@@ -33,12 +38,25 @@ func _process(delta: float) -> void:
 			if note < $Conductor.beat - 1:
 				lane.pop_front()
 				judgement_text.text = "MISS"
-				score -= 200
+				if score >= 200:
+					score -= 200
+				if score < 200:
+					score = 0
 			else:
 				break
 
 	if not song_ended and _all_notes_cleared():
 		song_ended = true
+		await get_tree().create_timer(2.0).timeout
+		end_screen.show()
+		song_icon.show()
+		score_text.text = "WATER
+COMPLETE!
+SCORE: " + str(score) + "
+
+GOING BACK TO SONG SELECTION"	
+		await get_tree().create_timer(4.0).timeout
+
 		_return_to_song_select()
 
 
@@ -52,6 +70,7 @@ func _all_notes_cleared() -> bool:
 func _return_to_song_select() -> void:
 	await get_tree().create_timer(2.0).timeout
 	get_tree().change_scene_to_file("res://song_selection.tscn")
+
 
 func _draw() -> void:
 	for i in 5:
@@ -71,7 +90,7 @@ func _draw() -> void:
 			var rect = Rect2(100 * i + 360, y - 100 / 2, 100, 100)
 			draw_texture_rect(note_texture, rect, false)
 			
-	draw_string(ThemeDB.fallback_font, Vector2(60, 60), "Score: " + str(score))
+	draw_string(SCORE_FONT, Vector2(60, 60), "Score: " + str(score))
 
 func _unhandled_key_input(event: InputEvent) -> void:
 		if event.is_action_pressed("1"):
@@ -106,12 +125,12 @@ func _handle_lane_press(lane: int) -> void:
 
 	if abs($Conductor.beat - note) < .6 && abs($Conductor.beat - note) > .200:
 		lane_notes.pop_front()
+		score+= 100	
 		judgement_text.text = "GOOD"
-		score+= 100
 	elif abs($Conductor.beat - note) < .200:
 		lane_notes.pop_front()
-		judgement_text.text = "PERFECT"
 		score += 250
+		judgement_text.text = "PERFECT"
 	elif abs($Conductor.beat - note) > .6 && abs($Conductor.beat - note) < 1:
 		lane_notes.pop_front()
 		score += 50

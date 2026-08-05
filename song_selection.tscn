@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cahd8hrkrgf7o"]
 
 [ext_resource type="Script" uid="uid://cg28tobs8yu4j" path="res://song_selection.gd" id="1_770jc"]
-[ext_resource type="Texture2D" uid="uid://dfjicq1enem23" path="res://images/briana-graham-T3k-mc_CBpQ-unsplash.jpg" id="2_8jb86"]
+[ext_resource type="Texture2D" uid="uid://ckasqw7126g4" path="res://images/hiroshi-tsubono-_Tutg4OD2lI-unsplash.jpg" id="2_8jb86"]
 [ext_resource type="Texture2D" uid="uid://cn67x80r1637p" path="res://images/water.png" id="3_wqwlp"]
 [ext_resource type="Texture2D" uid="uid://d4np132mfw3gs" path="res://images/play_open.png" id="4_8jb86"]
 [ext_resource type="Texture2D" uid="uid://br0dybs3bym0k" path="res://images/play.png" id="4_curlq"]
