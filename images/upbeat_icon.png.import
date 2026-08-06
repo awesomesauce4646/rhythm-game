@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://enea21a4q3wp"
-path="res://.godot/imported/upbeat_icon.png-0c9fdbf7afd980dc116f72b376a96019.ctex"
+path.s3tc="res://.godot/imported/upbeat_icon.png-0c9fdbf7afd980dc116f72b376a96019.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://images/upbeat_icon.png"
-dest_files=["res://.godot/imported/upbeat_icon.png-0c9fdbf7afd980dc116f72b376a96019.ctex"]
+dest_files=["res://.godot/imported/upbeat_icon.png-0c9fdbf7afd980dc116f72b376a96019.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
