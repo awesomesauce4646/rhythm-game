@@ -21,7 +21,6 @@ var note_texture = preload("res://images/note_sprite.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-		await(2)
 		pass # Replace with function body.
 
 

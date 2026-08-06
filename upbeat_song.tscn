@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://mvsri8wytln4"]
 
 [ext_resource type="Script" uid="uid://borf4nfa3gvx5" path="res://upbeat_chart.gd" id="1_j37fv"]
-[ext_resource type="AudioStream" uid="uid://bx4gfihtp6hne" path="res://songs/bombinsound-upbeat-rock-version-2-544111.mp3" id="2_j37fv"]
+[ext_resource type="AudioStream" uid="uid://c3ysj2o8qqwxs" path="res://songs/bombinsound-upbeat-rock-version-2-544111.ogg" id="2_82qmn"]
 [ext_resource type="Script" uid="uid://cbq80braxepiu" path="res://upbeat_conductor.gd" id="3_bcnv2"]
 [ext_resource type="Texture2D" uid="uid://dh6k3sh7viixs" path="res://images/pawel-czerwinski-IcOg3D9yh0o-unsplash.jpg" id="4_l3k1q"]
 [ext_resource type="FontFile" uid="uid://b2eu30wr5jejt" path="res://PeaceMarker-XGzrK.otf" id="5_bcnv2"]
@@ -11,7 +11,7 @@
 script = ExtResource("1_j37fv")
 
 [node name="Conductor" type="AudioStreamPlayer" parent="." unique_id=1353313270]
-stream = ExtResource("2_j37fv")
+stream = ExtResource("2_82qmn")
 volume_db = 6.0
 script = ExtResource("3_bcnv2")
 

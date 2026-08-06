@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b6bg1k7omkh7n"]
 
 [ext_resource type="Script" uid="uid://b2e6ppmr2mgoc" path="res://water_chart.gd" id="1_463hu"]
-[ext_resource type="AudioStream" uid="uid://bd71loersgiij" path="res://songs/kontraa-water-afro-pop-music-445661.mp3" id="2_0rucn"]
+[ext_resource type="AudioStream" uid="uid://dwilmtjn07vmh" path="res://songs/kontraa-water-afro-pop-music-445661.ogg" id="2_lln2r"]
 [ext_resource type="Script" uid="uid://da2f4dehpi3u6" path="res://water_conductor.gd" id="3_463hu"]
 [ext_resource type="Texture2D" uid="uid://baenpgujoqabx" path="res://images/shreyansh-mishra-08Jff84I-sA-unsplash.jpg" id="4_0rucn"]
 [ext_resource type="FontFile" uid="uid://b2eu30wr5jejt" path="res://PeaceMarker-XGzrK.otf" id="5_bu27u"]
@@ -11,7 +11,7 @@
 script = ExtResource("1_463hu")
 
 [node name="Conductor" type="AudioStreamPlayer" parent="." unique_id=995424289]
-stream = ExtResource("2_0rucn")
+stream = ExtResource("2_lln2r")
 volume_db = 6.0
 script = ExtResource("3_463hu")
 
